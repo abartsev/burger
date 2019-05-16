@@ -1,0 +1,26 @@
+$bg: #000; 
+$baseFontSize: 14;
+@function rem($pixels, $context: $baseFontSize) {
+@if (unitless($pixels)) { $pixels: $pixels * 1px; } 
+
+@if (unitless($context)) {
+ $context: $context * 1px; } 
+
+@return $pixels / $context * 1rem;
+}
+
+// @mixin icon($name, $className){
+//   $icon : "images/icons/${name}.svg";
+//   <svg class=$className viewBox=$icon.viewBox preserveAspectRatio="none">
+//     <use xlink:href=$icon />
+//     </svg>
+// }
+// @mixin image(path, className){
+//   img(src=require(`images/${path}`) class=className)
+// }
+
+@mixin phones(){
+@media screen and (max-width: "480px"){
+    @content;
+}
+}
